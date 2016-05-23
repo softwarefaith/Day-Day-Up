@@ -50,6 +50,26 @@ document表示DOM，是window的属性<br/>
 +注释节点
 ####DOM树
 ##HTML基础结构<br/>
+
+	<html>
+
+		<head> 
+			<title>网页的标题信息</title>
+    		<meta>
+    		<link>
+    		<style>...</style>
+    		<script>...</script>
+		</head>
+		
+		<body>
+		
+		</body>
+
+
+	</html>
+
+
+
 A的伪类：用于向被选中元素添加特殊效果。<br/>
 link 未访问（默认） -- hover  鼠标悬停（鼠标划过） -- active 链接激活（鼠标按下） -- visited 访问过后（点击过后）<br/>
 顺序：link visited hover active
