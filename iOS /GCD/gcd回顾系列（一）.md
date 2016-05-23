@@ -18,3 +18,6 @@
 ###家族体系
 ![GCD-Family](CGD-Family.png)
 
+
+参考文章：
+1.<http://www.dreamingwish.com/article/grand-central-dispatch-basic-1.html>
