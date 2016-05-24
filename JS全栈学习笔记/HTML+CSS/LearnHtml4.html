@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>标签4</title>
+</head>
+<body>
+		<p>与用户交互，表单控件放在form标签中间</p>
+		<form method="传送方式：GET POST" action="服务器文件，输入数据被传送到的地方">
+			<input type="text/password" name="文本框命名，以备后台程序使用" value="文本框设置默认值"> </input>
+
+			<textarea name="myText" rows="行数" cols="列数">默认值</textarea>
+
+             //radio 单选框  --checkbox 为复选框  checked 默认为选中
+             //同一组的单选按钮，name取值一定要一致
+            <input type="radio/checkbox" value="值" name="名称" checked="checked">
+
+            //下拉列表框--有效节省网页空间，既可以单选又可以多选
+            <select name="select" multiple="multiple">
+            	//selected 设置默认选中
+            	<option value="提交值" selected="selected">选项</option>
+            	
+            </select>
+
+            <input type="submit" value="提交按钮">
+
+            <input type="reset" value="重置按钮">
+
+             //标签的 for 属性中的值应当与相关控件的 id 属性值一定要相同。
+             <label for="控件id名称"></label>
+             input
+		</form>
+</body>
+</html>
