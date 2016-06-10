@@ -74,3 +74,6 @@ protype
 局部变量
 ####JS原型
 类才有原型protype
+
+####DOM
+
