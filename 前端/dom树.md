@@ -32,8 +32,6 @@ previousSibling;nextSibling; 兄弟节点
 - 文档类型节点 [#document,null，9]
 
 
-
-
 ###元素遍历
 1.子孙关系
 
@@ -104,12 +102,66 @@ previousSibling;nextSibling; 兄弟节点
     安全问题，html不检查内容
     仅建议新的节点  不涉及用户的信息
 
-
-
 NOTE:***节点以及其后代节点的文本内容*** 
- 
 
+####属性操作
+
+ - property accessor 属性获取器
  
+  element.className;  element['id']; element.value; 
+  Bool型属性 出现默认为 ture
+  
+  ***Note:*** 通用性-名字异常； 扩展性差； 具备实用对象优势
+ 
+ 
+ - getAttribute / setAttribute
+ 
+ var attribute = element.getAttribute(attributeName);
+ 
+ element.setAttribute(name,value);
+ 
+ ***Note***  仅字符串 但是 通用性强
+ 
+ 
+ - dataset
+ 
+ 自定义属性；
+ HTMLElement.dataset;
+ data-* 属性集
+ 元素上保存数据
+ 
+ 
+###样式操作
+
+外部样式，嵌入式样式 element.sheet; 所有的document.styleSheets; <br>
+内部样式 			  element.style  <br> 
+ 
+element.sheet.cssRules  css规则样式列表<br>
+element.sheet.cssRules[location].style  <br>
+通过属性选择器访问具体的样式 .selectorText 样式名称<br>
+另外 style为CSSStyleDeclaration<br>
+
+######更新样式：
+- element.style.property = ?  设置单个属性
+- element.style.cssText =  ？ 设置多个属性
+缺点：样式混在逻辑中
+
+解决方案： element.className += "class";
+一次更新很多元素的样式 更换样式表：跟换---外部样式.href = ""
+
+######获取样式
+
+element.style 获取不到实际的样式
+获取通用的样式：var style = window.getComputedStyle(element).property;
+IE9 使用element.currentStyle
+
+######CSS DOM overview
+
+![css-dom-overview](css-dom-overview.png)
+
+
+
+
  
  DOM Core
  DOM HTML
