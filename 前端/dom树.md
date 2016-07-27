@@ -159,6 +159,121 @@ IE9 使用element.currentStyle
 
 ![css-dom-overview](css-dom-overview.png)
 
+##DOM事件
+
+####事件流
+三个阶段
+- capture phase
+- target  phase
+- bubble  phase
+<http://www.w3.org/TR/uievents/#dom-event-architecture>
+####事件注册
+
+- 事件注册
+
+eventTarget.addEventListener(type ,handler, [userCapture]);
+
+event.onclick = handler;
+
+
+- 取消事件
+
+eventTarget.removeEventListener(type ,handler, [userCapture]);
+
+eventTarget.onclick = null;
+
+- 事件触发
+eventTarget.dispatchEvent(type);
+
+- 浏览器兼容型（IE6,7,8）
+1 attchEvent / detachEvent
+2.fireEvent
+
+低版本：type类型不同
+<http://www.w3.org/TR/uievents/ >
+<https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget >
+####事件对象
+
+低版本兼容
+event = event || window.event;
+
+- 属性
+  1.type   事件类型
+  2.target(srcElement) 事件触发的节点
+  3.currentTarget    当前处理节点  比如-注册到某节点的父节点 
+- 方法
+
+  1.stopPropagation 阻止冒泡   w3c (event.cancelBubble = ture [IE])
+  
+  2.preventDefault  w3c  (event.returnValue = false [IE])
+  
+  3.stopImmediatePropagation  w3c 一个节点可以有多个事件，阻止后续事件
+
+
+	
+
+<https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget >
+####事件分类
+![dom-event](dom-event.png)
+
+
+1.MouseEvent 对象
+![mouse-event](mouse-event.png)
+1.1属性
+
+ - clientX,clientY
+ - screenX,screenY
+ - ctrlKey,shiftKey,metaKey
+ 
+ 1.2顺序
+![mouse-element](mouse-element.png)
+
+2.WheelEvent
+
+2.1属性
+
+- deltaMode
+- deltaX
+- deltaY
+- deltaZ
+
+3.FocusEvent
+
+![focus-event](focus-event.png)
+
+3.1属性
+ 
+ - relatedTarget
+ 
+4.InputEvent
+
+![inout-event](inout-event.png)
+onpropertychange(低版本)
+
+5.KeyboardEvent
+![KeyboardEvent.png](KeyboardEvent.png)
+5.1属性
+
+   - key
+   - code
+   - ctrlKey shiftKey altKey metaKey
+   - repeat
+   - keyCode
+   - charCode
+   
+6.Event
+![event](event.png)
+
+7. UIEvent
+
+![UIEvent](UIEvent.png)
+
+
+####事件代理
+
+
+
+
 
 
 
