@@ -16,7 +16,7 @@
 - 节点彼此都有等级关系。 
 
 ###节点遍历
-#####node:
+#####node间关系:
 parentNode; 父节点
 firstChild;lastChild; 子节点
 previousSibling;nextSibling; 兄弟节点
