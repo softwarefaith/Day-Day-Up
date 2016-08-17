@@ -137,13 +137,14 @@ text-align; //对齐
 
 ###元素分类
 ***块元素***<br/>
-设置display:block就是将元素显示为块级元素。<br/>
+设置display:block就是将元素显示为块级元素。<br/>换行显示
 块级元素特点：<br/>
 1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（真霸道，一个块级元素独占一行）<br/>
 2、元素的高度、宽度、行高以及顶和底边距都可设置。<br/>
 3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。<br/>
 ***内联元素***<br/>
 块状元素也可以通过代码display:inline将元素设置为内联元素<br/>
+默认宽度为内容宽度，不可设置宽高，同行显示
 内联元素特点：<br/>
 1、和其他元素都在一行上；<br/>
 2、元素的高度、宽度及顶部和底部边距不可设置；<br/>
@@ -154,6 +155,12 @@ inline-block 元素特点：<br/>
 1、和其他元素都在一行上；<br/>
 2、元素的高度、宽度、行高以及顶和底边距都可设置。<br/>
 ![element](element.png)
+
+display:none 设置元素不显示
+visibility:hidden  依然暂居位置
+
+#####水平居中
+margin:0 auto
 
 ###盒模型
 
@@ -214,6 +221,21 @@ div{ margin:10px;}<br/>
 
 div{ margin:10px 20px;}<br/>
 
+
+##Overflow
+
+1.visible
+2.hidden
+3.scroll
+4.auto
+
+##box-sizing
+
+box-sizing: content-box | boder-box | inherit
+
+box-shadow
+outline
+
 ###布局模型
 布局模型是建立在盒模型基础之上，又不同于我们常说的 CSS 布局样式或 CSS 布局模板。如果说布局模型是本，那么 CSS 布局模板就是末了，是外在的表现形式。 <br/>
 
@@ -235,9 +257,32 @@ CSS包含3种基本的布局模型，用英文概括为：Flow、Layer 和 Float
 让两个块状元素并排显示;任何元素在默认情况下是不能浮动的，但可以用 CSS 定义为浮动
 float:left or right | none | inhert;<br/>
 
+默认宽度为内容宽度，脱离文档流 ，向指定方向一直移动
+
+float元素在同一文档流
+float元素半脱离文档流
+
+
+
+clear: both | left | right | none | inherit
+应用于后续元素  
+应用于块级元素
+
+- 空白元素
+- clearfix
+
 3、***层模型（Layer）***<br/>
 层布局模型就像是图像软件PhotoShop中非常流行的图层编辑功能一样，每个图层能够精确定位操作，但在网页设计领域，由于网页大小的活动性，层布局没能受到热捧。但是在网页上局部使用层布局还是有其方便之处的。<br/>
 ***层模型有三种形式***：<br/>
+
+position  设置 定位方式
+top right bottom left z-index  设置位置
+
+z-index 栈
+
+
+0 默认为static
+
 
 1、***绝对定位***(position: absolute)<br/>
 
@@ -245,18 +290,76 @@ float:left or right | none | inhert;<br/>
 
 指非static 第一个祖先元素
  z-index 层级关系
+ 
+ 默认宽度为内容宽度
+ 脱离文档流
+ 参照物第一个定位祖先或根元素
 
 2、***相对定位***(position: relative)
 
 通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，***偏移前的位置保留不动***。
 
+仍在文档流中，参照物为元素本身
+
 3、***固定定位***(position: fixed)
 
 fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。
 
+默认为内容宽度
+脱离文档流
+参照物为视窗
+
+
 4.默认值
 
 5.inherit从父元素继承
+
+###FLEX布局
+flex container
+flex item
+创建flex container
+
+display: flex
+在文档流中的子元素
+
+方向：
+
+- flex-direction: row| row-reverse| column| column-reverse
+- flex-wrap:nowarap | wrap | wrap-reverse  //换行
+- flex-flow: <'flex-direction'> || <'flex-wrap'>
+- order:<interger>  initial:0
+
+
+弹性：
+- flex-basis : main-size | <width>  设置flex item的初始化宽高
+- flex-grow: <number>    initial:0  空余空间比例
+- flex-shrink :<number>  initial:1
+
+
+flex； grow | shrink | basis
+
+
+###对齐
+
+- justify-content: flex-start | flex-end | center | space-between | space-around
+
+设置main-axis方向上的对齐方式,剩余空间如何分配
+
+
+
+- align-items  垂直方向
+ align-items: flex-start | flex-end | center | baseline | stretch
+
+
+- align-self : auto | flex-start | flex-end |center | baseline | stretch
+
+设置单个flex item 在cross-axis方向上对齐方式
+
+
+- align-content：flex-start | flex-end | center | space-between | space-around
+
+
+
 
 ###缩写
 
