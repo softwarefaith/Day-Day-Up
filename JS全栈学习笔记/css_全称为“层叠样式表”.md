@@ -404,6 +404,10 @@ p{font-size:12px;line-height:130%}
 
 ###技巧
 ####水平居中
+inine-block  + text-align
+table + margin
+absolute + transform  不会对其他元素产生影响    兼容性差一些
+ flex + justify-content 设置 parent节点  
 
 ***1.行内元素***<br/>
 如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。
@@ -426,6 +430,12 @@ p{font-size:12px;line-height:130%}
 ***理解：***假想ul层的父层（即下面例子中的div层）中间有条平分线将ul层的父层（div层）平均分为两份，ul层的css代码是将ul层的最左端与ul层的父层（div层）的平分线对齐；而li层的css代码则是将li层的平分线与ul层的最左端（也是div层的平分线）对齐，从而实现li层的居中。
 
 ####垂直居中
+
+- table-cell + vertical-align
+- absolute + transform
+- flex + align-items
+- 
+
 ***1.父元素高度确定的单行文本***<br/>
 
 父元素高度确定的单行文本的竖直居中的方法是通过设置父元素的 height 和 line-height 高度一致来实现的。(height: 该元素的高度，line-height: 顾名思义，行高（行间距），指在文本中，行与行之间的 基线间的距离 )。<br/>
@@ -439,6 +449,12 @@ line-height 与 font-size 的计算值之差，在 CSS 中成为“行间距”�
 ***2.1使用插入 table  (包括tbody、tr、td)标签，同时设置 vertical-align：middle。***
 
 css 中有一个用于竖直居中的属性 vertical-align，在父元素设置此样式时，会对inline-block类型的子元素都有用。
+
+
+
+####居中
+
+
 
 ####隐式改变display
 当为元素（不论之前是什么类型元素，display:none 除外）设置以下 2 个句之一：
@@ -455,7 +471,7 @@ css 中有一个用于竖直居中的属性 vertical-align，在父元素设置�
 		base层
 		common层
 		page层
-3.职责原则 --保持独立，便于重用
+3.职责原则 -- 保持独立，便于重用
 4.封装原则 -- 页面之间不要相互影响
 	加前缀
 	加命名空间
@@ -468,11 +484,32 @@ css 中有一个用于竖直居中的属性 vertical-align，在父元素设置�
 class id  标签
 
 #####布局
-框架布局
-表格布局
-盒子模型
-css3弹性布局(Flex布局)
-css3多列布局
+#######框架布局
+#######表格布局
+#######盒子模型
+#######css3弹性布局(Flex布局)
+#######css3多列布局
+- 定宽与自适应
+
+1 float + margin + (fix 辅助)
+
+2. float + overflow
+
+3.table
+
+4. flex
+
+
+- 不定宽与自适应
+
+- 等分
+
+
+- 等高
+- 全屏布局
+
+
+
 
 
 
