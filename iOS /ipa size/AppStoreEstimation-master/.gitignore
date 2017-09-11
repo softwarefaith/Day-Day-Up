@@ -1,0 +1,4 @@
+*.ipa
+tmp/*
+*.sw*
+.DS_Store

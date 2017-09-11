@@ -1,0 +1,34 @@
+#!/bin/bash
+
+IPA=$1
+BINSIZE=0
+ZIPSIZE=0
+BUNDLE=""
+
+if [ ! -f $IPA -o ${IPA: -4} != ".ipa" ]
+then
+  echo "Invalid file"
+  exit
+fi
+
+unzip -qq $IPA -d tmp/
+
+# move into the payload dir and get the bundle name
+cd tmp/Payload/
+for f in *
+do
+  BUNDLE=${f%%.*}
+done
+
+# move into the bundle
+cd $BUNDLE.app
+
+zip -qq -r archive.zip * -x $BUNDLE
+
+du -m -c $BUNDLE archive.zip | grep total
+
+
+# back home and cleanup
+cd ../../..
+rm -rf tmp/
+

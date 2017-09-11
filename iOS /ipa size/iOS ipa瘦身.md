@@ -90,6 +90,16 @@ release版应该选择Fastest, Smalllest，这个选项会开启那些不增加�
 
 原理是打开这两个选项后构建ipa会去除掉symbol符号，就是那些类名啊函数名啊啥的。这样子的影响就是运行时你没法进行线程回溯，符号都没了回溯了也是乱码。但是不会影响正常的崩溃日志生成和解析。在本机专门测试过，如果使用符号表来解析崩溃日志，则完全不受影响。
 
+[打包时,系统做的设置如下:](https://stackoverflow.com/questions/17650138/ios-ipa-file-size-xcode-archive-vs-xcodebuild-command)
+
+DEPLOYMENT_POSTPROCESSING=YES
+
+STRIP_INSTALLED_PRODUCT=YES
+
+SEPARATE_STRIP=YES
+
+COPY_PHASE_STRIP=YES
+
 详细的可以参考[Apple 文档](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/MachOTopics/1-Articles/executing_files.html#//apple_ref/doc/uid/TP40001829-97021-TPXREF121)
 
 
